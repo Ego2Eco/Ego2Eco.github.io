@@ -8,8 +8,9 @@
     <center>
     <h1>Implementation details</h1>
     <p align="center">For Feature Encoder, we extract the visual features by fully convolutional networks and derive the feature maps with 512 channels, while the observed trajectories are encoded by a fully-connected layer with the embedding size of 5*64, fed into an LSTM with a dimension of 64 for the hidden state. The social features are embedded through a fully-connected layer with the embedding size 64. For Enforced Attention, the self-attention visual features are encoded by a 3*3 convolutional layer and one fully-connected layer with the dimension of 64. c' is set as c/8 due to the memory efficiency. Horizon Attention considers the road-agents in the horizon range within 10 meters, i.e., d=10. The decoder of generator uses LSTM with the hidden state of 64 dimensions to decode the predictions, while the discriminator uses two LSTM encoders with the hidden size of 64 dimensions to separately encode predicted trajectories and the observed path, and are further processed through two fully-connected layers with a size of 64 and 32. Finally, these outputs are concatenated and fed in two separate blocks: Trajectory Classifier and Latent Code Decoder which are consists of two fully-connected layers with respective size of (32,1) and (32,2). The proposed AEE-GAN is trained for 20000 epochs by Adam optimizer with a mini-batch size of 256. The learning rates for the generator and the discriminator are both 0.0001, and spectral normalization is used for layers in both generator and the discriminator.</p>
-    <figure><img src="https://raw.githubusercontent.com/Ego2Eco/Ego2Eco.github.io/master/images/visual.png" /></figure>
+    <figure><img src="https://raw.githubusercontent.com/Ego2Eco/Ego2Eco.github.io/master/images/waymo.png" /></figure>
     <h1>Qualitative Results</h1>
+    <figure><img src="https://raw.githubusercontent.com/Ego2Eco/Ego2Eco.github.io/master/images/visual.png" /></figure>
     </center>
 
   </body>
