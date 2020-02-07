@@ -1,12 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AEE-GAN</title>
+    <meta charset="utf-8">
+  </head>
 <div class="demo">
-  <h1>CSS “Always on the bottom” Footer</h1>
-
-  <p>I often find myself designing a website where the footer must rest at the bottom of the page, even if the content above it is too short to push it to the bottom of the viewport naturally.</p>
-
-  <p>However, if the content is taller than the user’s viewport, then the footer should disappear from view as it would normally, resting at the bottom of the page (not fixed to the viewport).</p>
-
-  <p>If you know the height of the footer, then you should set it explicitly, and set the bottom padding of the footer’s parent element to be the same value (or larger if you want some spacing).</p>
-
+  <h1>Attended Ecology Embedding Generative Adversarial Network</h1>
+  <h1><font size="5">Implementation details</font></h1>
+  <p>For Feature Encoder, we extract the visual features by fully convolutional networks and derive the feature maps with 512 channels, while the observed trajectories are encoded by a fully connected layer with the embedding size of 5*64, fed into an LSTM with a dimension of 64 for the hidden state. The social features are embedded through a fully-connected layer with the embedding size 64. </p>
+    <p>For Enforced Attention, the self-attention visual features are encoded by a 3*3 convolutional layer and one fully-connected layer with the dimension of 64. c' is set as c/8 due to the memory efficiency. Horizon Attention considers the road-agents in the horizon range within 10 meters, i.e., d=10. The decoder of generator uses LSTM with the hidden state of 64 dimensions to decode the predictions, while the discriminator uses two LSTM encoders with the hidden size of 64 dimensions to separately encode predicted trajectories and the observed path, and are further processed through two fully-connected layers with a size of 64 and 32.</p> 
+  <p>Finally, these outputs are concatenated and fed in two separate blocks: Trajectory Classifier and Latent Code Decoder which are consists of two fully-connected layers with respective size of (32,1) and (32,2). The proposed AEE-GAN is trained for 20000 epochs by Adam optimizer with a mini-batch size of 256. The learning rates for the generator and the discriminator are both 0.0001, and spectral normalization is used for layers in both generator and the discriminator.</p>
+  <h1><font size="5">Prediction Results of AEE-GAN</font></h1>
+  <p> Green: AEE-GAN, PINK: TraPHic, Blue: GT</p>
+  <figure><img src="https://github.com/Ego2Eco/Ego2Eco.github.io/blob/master/images/3.gif?raw=true" width="640" height="480"/></figure>
+  <p>The motion pattern of the right-turned white car, which is slowed down to wait for the passing pedestrians and completed the right turn.</p>
+  <figure><img src="https://github.com/Ego2Eco/Ego2Eco.github.io/blob/master/images/15.gif?raw=true" width="640" height="480"/></figure>
+  <p>The motion pattern of the right-turned red car in the middle of the intersection has been successfully predicted by our model, where the trajectories of the follow-up cars have also been accurately predicted, indicating that the interactions in the complex intersection scene could be captured by our model.</p>
+  <figure><img src="https://github.com/Ego2Eco/Ego2Eco.github.io/blob/master/images/25.gif?raw=true" width="640" height="480"/></figure>
+  <p>The prediction results of the white pedestrians from the right were initially moving upward. Once the interaction of the upcoming pedestrians in blue and orange was sensed, our model predicts the descending trajectories to avoid the collision.</p>
+  
+<h1><font size="5">Visualizations of Visual Attention</font></h1>
+  <p>Green: Ground Truth, Black: Prediction</p>
+  <figure><img src="https://github.com/Ego2Eco/Ego2Eco.github.io/blob/master/images/12.png?raw=true" width="640" height="480"/></figure>
+  <p>The result of the heatmap shows that the attended region in the left, where exists a physical constraint leading the traffic agent to move aside.</p>
   <p>This is to prevent the footer from overlapping the content above it, since it is being removed from the document flow with <code>position: absolute;</code>.</p>
 </div>
 
