@@ -27,9 +27,9 @@
   <p>We use Grad-Cam to visualize our result of visual attention. The heatmap represents the attention weights toward the image pixels, which the warmer it gets indicates that the higher attention weight it is. The predicted result of trajectory and ground truth is colored in black green, respectively.</p>
   <p><center>Green: Ground Truth, Black: Prediction</p></center>
   <figure><img src="https://github.com/Ego2Eco/Ego2Eco.github.io/blob/master/images/12.png?raw=true" width="640" height="480"/></figure>
-  <p>The result of the heatmap shows that the attended region in the left, where exists a physical constraint leading the traffic agent to move aside.</p>
+  <p>The result of the heatmap shows that our model attends the region where exists a physical constraint and predicts the corresponding trajectory to bypass the parking lot.</p>
   <figure><img src="https://github.com/Ego2Eco/Ego2Eco.github.io/blob/master/images/15cam.png?raw=true" width="640" height="480"/></figure>
-  <p>The result shows that through attending the upper region, it follows the moving pattern in a roundabout while attending the lower region on the sidewalk, the road-agent is predicted to stay in the roundabout.</p>
+  <p>The result shows that the nearby terrain is observed (upper attended region) and the information of the crossing is captured (lower attended region) to determine the moving direction. Referring to the attended features, the predicted trajectory moves along the roundabout instead of moving into the crossing downward.</p>
     
     <h1><font size="5"><center>Ablation Study</font></h1>
     <figure><img src="https://github.com/Ego2Eco/Ego2Eco.github.io/blob/master/images/ablation%20study.png?raw=true"  width="640" height="50"/></figure>
