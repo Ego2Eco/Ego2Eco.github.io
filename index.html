@@ -13,6 +13,7 @@
   <p>Finally, these outputs are concatenated and fed in two separate blocks: Trajectory Classifier and Latent Code Decoder which are consists of two fully-connected layers with respective size of (32,1) and (32,2). The proposed AEE-GAN is trained for 20000 epochs by Adam optimizer with a mini-batch size of 256. The learning rates for the generator and the discriminator are both 0.0001, and spectral normalization is used for layers in both generator and the discriminator.</p>
   <h1><font size="5"><center>Modified Figure 1</font></h1>
     <figure><img src="https://github.com/Ego2Eco/Ego2Eco.github.io/blob/master/images/attention_revise.png?raw=true" width="720" height="236"/></figure>
+    <p>Illustration of the enforced attention mechanism in AEE-GAN in the heterogeneous environment. In the right figure, we show that the pedestrians in the horizon region (yellow region) are more attended than other road-agents by our model, and AEE-GAN is able to attend the related visual features for prediction, where the white portions indicate the attended region. The left image presents the predicted trajectories in the traffic scene.</p>
   <h1><font size="5"><center>Prediction Results of AEE-GAN</font></h1>
   <p> <center>Green: AEE-GAN, PINK: TraPHic, Blue: GT</p></center>
   <figure><img src="https://github.com/Ego2Eco/Ego2Eco.github.io/blob/master/images/3.gif?raw=true" width="640" height="480"/></figure>
