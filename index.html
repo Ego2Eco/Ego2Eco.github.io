@@ -41,14 +41,21 @@
   <figure><img src="https://github.com/Ego2Eco/Ego2Eco.github.io/blob/master/images/15cam.png?raw=true" width="640" height="480"/></figure>
   <p>The result shows that the nearby terrain is observed (upper attended region) and the information of the crossing is captured (lower attended region) to determine the moving direction. Referring to the attended features, the predicted trajectory moves along the roundabout instead of moving into the crossing downward.</p>
     
+    <figure><img src="https://github.com/Ego2Eco/Ego2Eco.github.io/blob/master/images/waymo4.png?raw=true" width="640" height="211"/></figure>
+   
+  <p>In this section, we use the same visualization method on our visual attention of Waymo dataset. The prediction result is colored in black with the ground truth colored in green. The significant difference between the two datasets is the camera angle, where the SDD dataset is mostly presented in a top-down view, while the Waymo set is mostly presented in front view. This difference leads to an interesting comparison between the visual attention of two datasets. Unlike SDD dataset, where our attention module often focuses on the region which might “potentially” affect the prediction result,  the figure shows that the attended region on Waymo dataset often appears on the area where the predicted trajectory points. Due to the comprehensive traffic information presented in the top-down view (SDD) dataset, our model could learn to focus on the specific region which might affect prediction results the most from the overall traffic scene. However, due to limited visual information from the front view dataset (Waymo), the attention module could only focus on the region which is informative for the predicted trajectories based on the current image.</p>
+    <figure><img src="https://github.com/Ego2Eco/Ego2Eco.github.io/blob/master/images/4cam.png?raw=true" width="640" height="480"/></figure>
+    <p>The example shows an interesting result, in which our model attends the back and the front of the car while it is making a U-turn. Although the prediction result is far from ground truth which only moves slightly forward in the turning process, the predicted trajectory seems reasonable to finish the U-turn.
+</p>
+    
      <h1><font size="5"><center>Variance Analysis</font></h1></center>
   <figure><img src="https://github.com/Ego2Eco/Ego2Eco.github.io/blob/master/images/varience.png?raw=true" width="640" height="286"/></figure>
     <p>This experiment shows the variance of the trajectory distribution. We generate 20 trajectories colored in red, with the ground truth in blue and the past trajectories in a different color for each road-agent. Compared to Social GAN in the image (a), the distribution of our prediction result is more accurate and concentrated, which implies that our model could generate results with lower variance.</p>
     
 <h1><font size="5"><center>More Qualitative Results</font></h1>
-    <figure><img src="https://raw.githubusercontent.com/Ego2Eco/Ego2Eco.github.io/master/images/visual.png"  width="640" height="581"/></figure>
+    <figure><img src="https://raw.githubusercontent.com/Ego2Eco/Ego2Eco.github.io/master/images/visual.png"  width="640" height="480"/></figure>
   <p>Visualization of the distribution of the prediction trajectories, corresponding to Figure 3 in the paper. The distribution of trajectories is presented in red, and the 30 random starting samples are illustrated as blue crosses.</p>
-      <figure><img src="https://raw.githubusercontent.com/Ego2Eco/Ego2Eco.github.io/master/images/horizon.png"  width="640" height="574"/></figure>
+      <figure><img src="https://raw.githubusercontent.com/Ego2Eco/Ego2Eco.github.io/master/images/horizon.png"  width="640" height="480"/></figure>
       <p><center>Blue: Ground truth; Dotted line of other colors: Observed Trajectory; Solid line of other colors: Prediction Trajectory</p></center>
     <p>This figure is corresponding to the figure 4 in the paper, showing more examples of the horizon attention.</p>
     <p> In the first scenario, figure (a) visualizes the attention weights of the Social Enforcement module, and figure (b) shows the prediction trajectories. S-WAYS fails to emphasize on the road-agents in front of the predicted agent but only focuses on the neighboring agent. As such, the red predicted trajectory occur collision. In contrast, our model can provide a more appropriate attention weights distribution that allows the predicted agent to notice important regions and predict a movement to avoid the collision.</p>
