@@ -31,13 +31,18 @@
        <p>The red region indicates the distribution of our predicted trajectories. The experiment result shows that our model predicts results that follow the physical constraint on the image in cases such as roundabout and forked road.</p>
       <h1><font size="5"><center>Visualizations of Visual Attention</font></h1></center>
   
-  <p>We use Grad-Cam to visualize our result of visual attention. The heatmap represents the attention weights toward the image pixels, which the warmer it gets indicates that the higher attention weight it is. The predicted result of trajectory and ground truth is colored in black and green, respectively.</p>
-  <p><center>Green: Ground Truth, Black: Prediction</p></center>
+  <p>We use Grad-Cam [A] to visualize our result of visual attention. The heatmap represents the attention weight toward the image pixels, which the warmer it gets indicates that the higher attention weight it is. The predicted result of trajectory and ground truth is colored in black and green, respectively.</p>
+  <p>[A]  R. R.Selvaraju, A. Das, R. Vedantam, M. Cogswell,
+D. Parikh, and D. Batra. Grad-cam: Why did you say that?
+visual explanations from deep networks via gradient-based
+localization. arXiv:1611.01646, 2016.</p>
+    <h1><font size="4">Stanford Drone Dataset:</font></h1>
   <figure><img src="https://github.com/Ego2Eco/Ego2Eco.github.io/blob/master/images/12.png?raw=true" width="640" height="480"/></figure>
   <p>The result of the heatmap shows that our model attends the region where exists a physical constraint and predicts the corresponding trajectory to bypass the parking lot.</p>
   <figure><img src="https://github.com/Ego2Eco/Ego2Eco.github.io/blob/master/images/15cam.png?raw=true" width="640" height="480"/></figure>
   <p>The result shows that the nearby terrain is observed (upper attended region) and the information of the crossing is captured (lower attended region) to determine the moving direction. Referring to the attended features, the predicted trajectory moves along the roundabout instead of moving into the crossing downward.</p>
-    
+    <p>---------------------------------------------------------------------------------------------------------------------------------------</p>
+    <h1><font size="4">Waymo Dataset:</font></h1>
     <figure><img src="https://github.com/Ego2Eco/Ego2Eco.github.io/blob/master/images/waymo4.png?raw=true" width="640" height="211"/></figure>
    
   <p>In this section, we use the same visualization method on our visual attention of Waymo dataset. The prediction result is colored in black with the ground truth colored in green. The significant difference between the two datasets is the camera angle, where the SDD dataset is mostly presented in a top-down view, while the Waymo set is mostly presented in front view. This difference leads to an interesting comparison between the visual attention of two datasets. Unlike SDD dataset, where our attention module often focuses on the region which might “potentially” affect the prediction result,  the figure shows that the attended region on Waymo dataset often appears on the area where the predicted trajectory points. Due to the comprehensive traffic information presented in the top-down view (SDD) dataset, our model could learn to focus on the specific region which might affect prediction results the most from the overall traffic scene. However, due to limited visual information from the front view dataset (Waymo), the attention module could only focus on the region which is informative for the predicted trajectories based on the current image.</p>
