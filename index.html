@@ -21,7 +21,7 @@
     
     <h1><font size="5"><center>Ablation Study</font></h1>
     <figure><img src="https://github.com/Ego2Eco/Ego2Eco.github.io/blob/master/images/ablation%20study.png?raw=true"  width="640" height="50"/></figure>
-    <p>We conduct the ablation study by leave-one-out analysis on the ETH dataset, i.e., our complete model (AEE-GAN), AEE-GAN without using Social Enforcement module SEo, AEE-GAN without using Recurrent Visual Attention Enforcement module RVAEo, AEE-GAN without recurrently computing the attention between the predicted results and the visual features Ro, AEE-GAN without using Horizon Attention module Ho, AEE-GAN without using the Self Attention module So.</p>
+    <p>We conduct the ablation study by leave-one-out analysis on the ETH dataset, i.e., our complete model (AEE-GAN), AEE-GAN without using Social Enforcement module (SEo), AEE-GAN without using Recurrent Visual Attention Enforcement module (RVAEo), AEE-GAN without recurrently computing the attention between the predicted results and the visual features (Ro), AEE-GAN without using Horizon Attention module (Ho) and AEE-GAN without using the Self Attention module (So).</p>
     
       <h1><font size="5"><center>Time Table</font></h1></center>
   <figure><img src="https://github.com/Ego2Eco/Ego2Eco.github.io/blob/master/images/time%20table.png?raw=true"  width="640" height="85"/></figure>
@@ -68,7 +68,8 @@ localization. arXiv:1611.01646, 2016.</p>
     <p> In the first scenario, figure (a) visualizes the attention weights of the Social Enforcement module, and figure (b) shows the prediction trajectories. S-WAYS fails to emphasize on the road-agents in front of the predicted agent but only focuses on the neighboring agent. As such, the red predicted trajectory occur collision. In contrast, our model can provide a more appropriate attention weights distribution that allows the predicted agent to notice important regions and predict a movement to avoid the collision.</p>
 <p>In the second scenario, figure (c) visualizes the attention weights of the Social Enforcement module, and figure (d) shows the prediction trajectories. S-WAYS fails to emphasize on the neighboring road-agents with the same walking direction next to the predicted agent; instead, it focuses on the neighboring agent behind. In contrast, our model can provide well-balanced weights on the neighboring agents which help predict more socially plausible trajectories compared to the other.</p>  
 
-  <h1><font size="5"><center>More Results of Waymo Dataset</h1></center>
+  <h1><font size="5"><center>More Results of Waymo Dataset</h1></center></font>
+    <p><center>Blue: Ground Truth, Green: AEE-GAN, Pink: TraPHic</p></center>
       <figure><img src="https://raw.githubusercontent.com/Ego2Eco/Ego2Eco.github.io/master/images/predict_3654.png" width="640" height="480"/></figure>
       <figure><img src="https://raw.githubusercontent.com/Ego2Eco/Ego2Eco.github.io/master/images/predict_3624.png" width="640" height="480"/></figure>
       <figure><img src="https://raw.githubusercontent.com/Ego2Eco/Ego2Eco.github.io/master/images/predict_2820.png" width="640" height="480"/></figure>
