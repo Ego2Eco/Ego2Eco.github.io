@@ -59,7 +59,7 @@ localization. arXiv:1611.01646, 2016.</p>
     
      <h1><font size="5"><center>Variance Analysis</font></h1></center>
   <figure><img src="https://github.com/Ego2Eco/Ego2Eco.github.io/blob/master/images/varience.png?raw=true" width="640" height="286"/></figure>
-    <p>This experiment shows the variance of the trajectory distribution. We generate 20 trajectories colored in red, with the ground truth in blue and the observed trajectories in orange. Compared to S-GAN in the image (a), the distribution of our prediction result is more accurate and concentrated, which implies that our model could generate results with lower variance.</p>
+    <p>This experiment shows the variance of the trajectory distribution. We generate 20 trajectories colored in red, with the ground truth in blue and the observed trajectories in orange. Compared to S-GAN in the image (a), the distribution of our prediction result is more accurate and concentrated, which implies that our model could generate more plausible results with lower variance.</p>
     
     <h1><font size="5"><center>Implementation details</font></h1>
   <p>For Feature Encoder, we extract the visual features by fully convolutional networks and derive the feature maps with 512 channels, while the observed trajectories are encoded by a fully connected layer with the embedding size of 5*64, fed into an LSTM with a dimension of 64 for the hidden state. The social features are embedded through a fully-connected layer with the embedding size 64. </p>
